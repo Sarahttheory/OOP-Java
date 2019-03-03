@@ -5,8 +5,5 @@ public class Test {
         System.out.println("Я сделяль!");
     }
 
-
-    public static void lab1tests() {
-
-    }
+    public static void lab1tests() { }
 }
