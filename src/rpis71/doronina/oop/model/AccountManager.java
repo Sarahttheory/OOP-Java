@@ -1,5 +1,6 @@
 package rpis71.doronina.oop.model;
 
+//todo Аналогичные IndividualsTariff замечания. Смотреть этот класс буду только после того, как сделаешь тесты
 public class AccountManager {
     private int size;
     private Account[] accounts;

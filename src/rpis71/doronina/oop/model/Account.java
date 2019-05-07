@@ -1,10 +1,12 @@
 package rpis71.doronina.oop.model;
 
 public class Account {
+    //todo атрибуты приватные
     int number;
     IndividualsTariff tariff;
     Person person;
 
+    //todo читай пункт 2 и 3 требований к выполнению работы
     Account(int number, Person person){
         this.number = number;
         this.person = person;

@@ -4,7 +4,7 @@ public class Service {
     private String name;
     private int cost;
 
-
+    //todo читай пункт 2 и 3 требований к выполнению работы
     Service(){
         this.name = "интернет 100мб\\сек";
         this.cost = 300;
