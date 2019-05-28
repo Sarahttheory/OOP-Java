@@ -3,14 +3,15 @@ package rpis71.doronina.oop.model;
 public class Service {
     private String name;
     private int cost;
+    private static final String DEFAULT_NAME = "интернет 100мб\\сек";
+    private static final int DEFAULT_COST = 300;
 
     //todo читай пункт 2 и 3 требований к выполнению работы
-    Service(){
-        this.name = "интернет 100мб\\сек";
-        this.cost = 300;
+    public Service(){
+        this(DEFAULT_NAME, DEFAULT_COST);
     }
 
-    Service(String name, int cost){
+    public Service(String name, int cost){
         this.name = name;
         this.cost = cost;
     }
