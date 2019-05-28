@@ -2,7 +2,7 @@ package rpis71.doronina.oop.model;
 
 
 //todo Все циклы, когда ты пробегаешься по Сервисам, должны быть до numbOfServices, ибо все твои элементы имеют номера [0, numbOfServices)
-public class IndividualsTariff {
+public class IndividualsTariff implements Tariff {
     private Service[] services;//todo а нафига? когда services.length и есть емкость?
     private static final int DEFAULT_SIZE = 8;
     private int numbOfServices;
@@ -136,5 +136,35 @@ public class IndividualsTariff {
         }
         cost += 50;
         return cost;
+    }
+
+    public Service[] getServices(ServiceTypes type){
+        Service[] services = new Service[numbOfServices];
+        int servicesSize = 0;
+        for (int i = 0; i < numbOfServices; i++){
+            if (this.services[i].getType() == type){
+                services[servicesSize] = this.services[i];
+                servicesSize++;
+            }
+        }
+        Service[] returnedServices = new Service[servicesSize];
+        System.arraycopy(services, 0, returnedServices,0, servicesSize);
+        return returnedServices;
+    }
+
+    public boolean containsService(ServiceTypes type){
+        for (int i = 0; i < this.numbOfServices; i++){
+            if(services[i].getType() == type) return true;
+        }
+
+        return false;
+    }
+
+    public boolean containsService(String name){
+        for (int i = 0; i < this.numbOfServices; i++){
+            if(services[i].getName().equals(name)) return true;
+        }
+
+        return false;
     }
 }

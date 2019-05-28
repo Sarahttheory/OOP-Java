@@ -5,6 +5,7 @@ public class Service {
     private int cost;
     private static final String DEFAULT_NAME = "интернет 100мб\\сек";
     private static final int DEFAULT_COST = 300;
+    private final ServiceTypes type = ServiceTypes.INTERNET;
 
     //todo читай пункт 2 и 3 требований к выполнению работы
     public Service(){
@@ -31,4 +32,6 @@ public class Service {
     public void setCost(int cost) {
         this.cost = cost;
     }
+
+    final public ServiceTypes getType(){return type;}
 }
