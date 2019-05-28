@@ -52,12 +52,12 @@ public class EntityTariff implements Tariff {
 
     public Service getService(String serviceName){
         Node<Service> currentNode = searchNodeByName(serviceName);
-        return null;
+        return null;//todo фигня
     }
 
     public boolean hasService(String serviceName){
         Node<Service> currentNode = searchNodeByName(serviceName);
-        return false;
+        return false;//todo фигня
     }
 
     public Service setService(int index, Service service){
@@ -82,7 +82,7 @@ public class EntityTariff implements Tariff {
     public Service removeService(String serviceName){
         Node<Service> nextNode;
         Service removedService = null;
-        Node<Service> currentNode = searchNodeByName(serviceName);
+        Node<Service> currentNode = searchNodeByName(serviceName); //todo проверить что этот нод head  и tail - и заменить ссылки head и tail
         removedService = currentNode.value;
         nextNode = currentNode.next;
         remove(removedService, currentNode, nextNode);
@@ -137,7 +137,6 @@ public class EntityTariff implements Tariff {
     }
 
     public boolean containsService(ServiceTypes type){
-        //Service[] services = getServices(); //todo while-ом по нодам как в методе выше
         Node<Service> currentNode = head;
         while (currentNode.next != null){
             if(currentNode.value.getType() == type) return true;
@@ -147,7 +146,6 @@ public class EntityTariff implements Tariff {
     }
 
     public boolean containsService(String name){
-        Service[] services = getServices(); //todo while-ом по нодам как в методе выше
         Node<Service> currentNode = head;
         while (currentNode.next != null){
             if(currentNode.value.getName().equals(name)) return true;
@@ -165,7 +163,6 @@ public class EntityTariff implements Tariff {
         }
         return currentNode;
     }
-    //todo аналогично getNode(index)
     public Node<Service> searchNodeByName(String serviceName){
         Node<Service> currentNode = head;
         while (currentNode.next !=null){

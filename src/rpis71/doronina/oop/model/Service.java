@@ -7,7 +7,6 @@ public class Service {
     private static final int DEFAULT_COST = 300;
     private final ServiceTypes type = ServiceTypes.INTERNET;
 
-    //todo читай пункт 2 и 3 требований к выполнению работы
     public Service(){
         this(DEFAULT_NAME, DEFAULT_COST);
     }

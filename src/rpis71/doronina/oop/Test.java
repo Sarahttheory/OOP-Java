@@ -8,7 +8,6 @@ public class Test {
         System.out.println("Я сделяль!");
         lab1tests();
     }
-    //todo в следующий раз без тестов смотреть не буду. Если б ты протестила - сразу кучу ошибок бы исправила
     public static void lab1tests() {
         IndividualsTariff individualsTariff = new IndividualsTariff();
         Service service1 = new Service();
@@ -34,4 +33,5 @@ public class Test {
             System.out.println(i+1 + "ая услуга: " + individualsTariff1.getService(i).getName() + " цена: " + individualsTariff1.getService(i).getCost());
         }
     }
+    //todo где тесты для 2 и 3???
 }

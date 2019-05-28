@@ -1,9 +1,10 @@
 package rpis71.doronina.oop.model;
 
-//todo Аналогичные IndividualsTariff замечания. Смотреть этот класс буду только после того, как сделаешь тесты
+//todo Везде должны быть ссылки типа Account, а не IndividualAccount
+//todo все циклы до numbOfAccounts
 public class AccountManager {
 
-    private IndividualAccount[] accounts;
+    private IndividualAccount[] accounts; //todo массив типа Account[]
     private int numbOfAccounts;
 
     public AccountManager(int size){
