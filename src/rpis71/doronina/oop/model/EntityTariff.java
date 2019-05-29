@@ -81,8 +81,9 @@ public class EntityTariff implements Tariff {
 
     public Service removeService(String serviceName){
         Node<Service> nextNode;
-        Service removedService = null;
+        //Service removedService = null;
         Node<Service> currentNode = searchNodeByName(serviceName); //todo проверить что этот нод head  и tail - и заменить ссылки head и tail
+        Service removedService = null;
         removedService = currentNode.value;
         nextNode = currentNode.next;
         remove(removedService, currentNode, nextNode);

@@ -4,36 +4,36 @@ package rpis71.doronina.oop.model;
 //todo все циклы до numbOfAccounts
 public class AccountManager {
 
-    private IndividualAccount[] accounts; //todo массив типа Account[]
+    private Account[] accounts; //todo массив типа Account[]
     private int numbOfAccounts;
 
     public AccountManager(int size){
-        this.accounts = new IndividualAccount[size];
+        this.accounts = new Account[size];
         this.numbOfAccounts = size;
     }
 
-    public AccountManager(IndividualAccount[] accounts){
-        IndividualAccount[] copyArray = new IndividualAccount[accounts.length];
-        for (int i = 0; i < accounts.length; i++){
+    public AccountManager(Account[] accounts){
+        Account[] copyArray = new Account[numbOfAccounts];
+        for (int i = 0; i < numbOfAccounts; i++){
             copyArray[i] = accounts[i];
         }
         this.accounts = copyArray;
     }
 
     public void accountExpansion(){
-        IndividualAccount[] copyArray = new IndividualAccount[this.numbOfAccounts * 2];
+        Account[] copyArray = new Account[this.numbOfAccounts * 2];
         System.arraycopy(this.accounts, 0, copyArray, 0, this.numbOfAccounts);
         this.accounts = copyArray;
     }
 
-    public boolean addAccount(IndividualAccount account){
+    public boolean addAccount(Account account){
         if (this.numbOfAccounts == this.accounts.length) accountExpansion();
         this.accounts[numbOfAccounts] = account;
         numbOfAccounts++;
         return true;
     }
 
-    public boolean addAccount(int index, IndividualAccount account){
+    public boolean addAccount(int index, Account account){
         if (this.numbOfAccounts == this.accounts.length) accountExpansion();
         System.arraycopy(this.accounts, index,accounts, index+1, numbOfAccounts - index + 1);
         this.accounts[index] = account;
@@ -41,22 +41,22 @@ public class AccountManager {
         return true;
     }
 
-    public IndividualAccount getAccount(int index){
+    public Account getAccount(int index){
         return accounts[index];
     }
 
-    public IndividualAccount setAccount(int index, IndividualAccount account){
-        IndividualAccount buffAccount = accounts[index];
+    public Account setAccount(int index, Account account){
+        Account buffAccount = accounts[index];
         accounts[index] = account;
         return buffAccount;
     }
 
-    public IndividualAccount removeAccount(int index){
-        IndividualAccount buffAccount = accounts[index];
-        for (int i = index; i < accounts.length - 1; i++){
+    public Account removeAccount(int index){
+        Account buffAccount = accounts[index];
+        for (int i = index; i < numbOfAccounts - 1; i++){
             accounts[i] = accounts[i+1];
         }
-        accounts[accounts.length - 1] = null;
+        accounts[numbOfAccounts - 1] = null;
         this.numbOfAccounts--;
         return buffAccount;
     }
@@ -65,8 +65,8 @@ public class AccountManager {
         return numbOfAccounts;
     }
 
-    public IndividualAccount[] getAccounts(){
-        IndividualAccount[] buffAccount = new IndividualAccount[numbOfAccounts];
+    public Account[] getAccounts(){
+        Account[] buffAccount = new Account[numbOfAccounts];
         System.arraycopy(accounts,0,buffAccount, 0, numbOfAccounts);
         return buffAccount;
     }
@@ -90,7 +90,7 @@ public class AccountManager {
 
     public int indexOf(long accountNumber){
         int index = -1;
-        for (int i = 0; i < this.accounts.length; i++){
+        for (int i = 0; i < this.numbOfAccounts; i++){
             if (accountNumber == accounts[i].getNumber()){
             index = i;
             }
