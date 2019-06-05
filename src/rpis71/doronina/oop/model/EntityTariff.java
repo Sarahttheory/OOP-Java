@@ -1,5 +1,7 @@
 package rpis71.doronina.oop.model;
 
+import java.util.Objects;
+
 public class EntityTariff implements Tariff {
 
     private Node<Service> head;
@@ -52,11 +54,12 @@ public class EntityTariff implements Tariff {
 
     public Service getService(String serviceName){
         Node<Service> currentNode = searchNodeByName(serviceName);
-        return null;//todo фигня
+        return currentNode.value;//todo фигня
     }
 
     public boolean hasService(String serviceName){
-        Node<Service> currentNode = searchNodeByName(serviceName);
+        Objects.requireNonNull(serviceName,  "Servise name can't be null");
+        searchNodeByName(serviceName);
         return false;//todo фигня
     }
 
@@ -81,9 +84,8 @@ public class EntityTariff implements Tariff {
 
     public Service removeService(String serviceName){
         Node<Service> nextNode;
-        //Service removedService = null;
-        Node<Service> currentNode = searchNodeByName(serviceName); //todo проверить что этот нод head  и tail - и заменить ссылки head и tail
         Service removedService = null;
+        Node<Service> currentNode = searchNodeByName(serviceName);
         removedService = currentNode.value;
         nextNode = currentNode.next;
         remove(removedService, currentNode, nextNode);
