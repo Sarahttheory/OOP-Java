@@ -75,31 +75,81 @@ public class AccountManager {
     }
 
     public Tariff getTariff(long accountNumber){
-        Tariff returnedTariff = null;
-        for (int i = 0; i < this.numbOfAccounts; i++){
-            if (accountNumber == accounts[i].getNumber()){
-                returnedTariff = accounts[i].getTariff();
+        Tariff buffTariff = null;
+        for (int i = 0; i < this.numbOfAccounts; i++) {
+            if (accountNumber == accounts[i].getNumber()) {
+                buffTariff = accounts[i].getTariff();
                 break;
             }
+        }
         return buffTariff;
     }
 
     public Tariff setTariff(long accountNumber, Tariff tariff){
-        Tariff buffTariff = null;
-        if (indexOf(accountNumber) != -1){
-            buffTariff = accounts[indexOf(accountNumber)].getTariff();
-            accounts[indexOf(accountNumber)].setTariff(tariff);
-        }
-        return buffTariff;
-    }
-
-    public int indexOf(long accountNumber){
-        int index = -1;
-        for (int i = 0; i < this.numbOfAccounts; i++){
+        Tariff  buffTariff = null;
+        for (int i = 0; i < numbOfAccounts; i++){
             if (accountNumber == accounts[i].getNumber()){
-            index = i;
+                buffTariff = accounts[i].getTariff();
+                accounts[i].setTariff(tariff);
+                break;
             }
         }
-        return index;
+        return  buffTariff;
+    }
+
+    public Account[] getAccounts(String serviceName){
+        Account[] accounts = new Account[numbOfAccounts];
+        int sizeReturnedAccounts = 0;
+        for (int i = 0; i < numbOfAccounts; i++){
+            if (accounts[i].getTariff().containsService(serviceName)){
+                accounts[sizeReturnedAccounts] = accounts[i];
+                sizeReturnedAccounts++;
+            }
+        }
+        Account[] returnedAccounts = new Account[sizeReturnedAccounts];
+        System.arraycopy(accounts, 0, returnedAccounts, 0, sizeReturnedAccounts);
+        return returnedAccounts;
+    }
+
+    public Account[] getAccounts(ServiceTypes type){
+        Account[] accounts = new Account[numbOfAccounts];
+        int sizeReturnedAccounts = 0;
+        for (int i = 0; i < numbOfAccounts; i++){
+            if (accounts[i].getTariff().containsService(type)){
+                accounts[sizeReturnedAccounts] = accounts[i];
+                sizeReturnedAccounts++;
+            }
+        }
+        Account[] returnedAccounts = new Account[sizeReturnedAccounts];
+        System.arraycopy(accounts, 0, returnedAccounts, 0, sizeReturnedAccounts);
+        return returnedAccounts;
+    }
+
+    public Account[] getIndividualAccounts(){
+        Account[] accounts = new Account[numbOfAccounts];
+        int sizeReturnedAccounts = 0;
+        for (int i = 0; i < numbOfAccounts; i++){
+            if (accounts[i].getTariff() instanceof  IndividualsTariff){
+                accounts[sizeReturnedAccounts] = accounts[i];
+                sizeReturnedAccounts++;
+            }
+        }
+        Account[] returnedAccounts = new Account[sizeReturnedAccounts];
+        System.arraycopy(accounts, 0, returnedAccounts, 0, sizeReturnedAccounts);
+        return returnedAccounts;
+    }
+
+    public Account[] getEntityAccounts(){
+        Account[] accounts = new Account[numbOfAccounts];
+        int sizeReturnedAccounts = 0;
+        for (int i = 0; i < numbOfAccounts; i++){
+            if (accounts[i].getTariff() instanceof  EntityTariff){
+                accounts[sizeReturnedAccounts] = accounts[i];
+                sizeReturnedAccounts++;
+            }
+        }
+        Account[] returnedAccounts = new Account[sizeReturnedAccounts];
+        System.arraycopy(accounts, 0, returnedAccounts, 0, sizeReturnedAccounts);
+        return returnedAccounts;
     }
 }
