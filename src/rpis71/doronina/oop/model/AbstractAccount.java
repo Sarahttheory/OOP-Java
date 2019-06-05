@@ -21,4 +21,4 @@ public abstract class AbstractAccount implements Account {
         this.tariff = tariff;
     }
 }
-2
+
