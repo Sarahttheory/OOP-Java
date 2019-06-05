@@ -1,5 +1,7 @@
 package rpis71.doronina.oop.model;
 
+import java.util.Arrays;
+
 //todo Везде должны быть ссылки типа Account, а не IndividualAccount
 //todo все циклы до numbOfAccounts
 public class AccountManager {
@@ -9,7 +11,8 @@ public class AccountManager {
 
     public AccountManager(int size){
         this.accounts = new Account[size];
-        this.numbOfAccounts = size;
+        //this.numbOfAccounts = size;
+
     }
 
     public AccountManager(Account[] accounts){
@@ -72,10 +75,12 @@ public class AccountManager {
     }
 
     public Tariff getTariff(long accountNumber){
-        Tariff buffTariff = null;
-        if (indexOf(accountNumber) != -1){
-            buffTariff = accounts[indexOf(accountNumber)].getTariff();
-        }
+        Tariff returnedTariff = null;
+        for (int i = 0; i < this.numbOfAccounts; i++){
+            if (accountNumber == accounts[i].getNumber()){
+                returnedTariff = accounts[i].getTariff();
+                break;
+            }
         return buffTariff;
     }
 
