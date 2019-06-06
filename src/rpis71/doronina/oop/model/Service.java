@@ -1,5 +1,6 @@
 package rpis71.doronina.oop.model;
 
+//todo должен быть immutable
 public class Service {
     private String name;
     private int cost;

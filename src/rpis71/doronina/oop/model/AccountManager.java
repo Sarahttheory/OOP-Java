@@ -2,11 +2,9 @@ package rpis71.doronina.oop.model;
 
 import java.util.Arrays;
 
-//todo Везде должны быть ссылки типа Account, а не IndividualAccount
-//todo все циклы до numbOfAccounts
 public class AccountManager {
 
-    private Account[] accounts; //todo массив типа Account[]
+    private Account[] accounts;
     private int numbOfAccounts;
 
     public AccountManager(int size){
@@ -129,7 +127,7 @@ public class AccountManager {
         Account[] accounts = new Account[numbOfAccounts];
         int sizeReturnedAccounts = 0;
         for (int i = 0; i < numbOfAccounts; i++){
-            if (accounts[i].getTariff() instanceof  IndividualsTariff){
+            if (accounts[i]instanceof  IndividualAccount){
                 accounts[sizeReturnedAccounts] = accounts[i];
                 sizeReturnedAccounts++;
             }
@@ -143,7 +141,7 @@ public class AccountManager {
         Account[] accounts = new Account[numbOfAccounts];
         int sizeReturnedAccounts = 0;
         for (int i = 0; i < numbOfAccounts; i++){
-            if (accounts[i].getTariff() instanceof  EntityTariff){
+            if (accounts[i] instanceof  EntityAccount){
                 accounts[sizeReturnedAccounts] = accounts[i];
                 sizeReturnedAccounts++;
             }

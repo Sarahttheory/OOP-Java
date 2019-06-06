@@ -54,7 +54,7 @@ public class EntityTariff implements Tariff {
 
     public Service getService(String serviceName){
         Node<Service> currentNode = searchNodeByName(serviceName);
-        return currentNode.value;//todo фигня
+        return currentNode.value;
     }
 
     public boolean hasService(String serviceName){

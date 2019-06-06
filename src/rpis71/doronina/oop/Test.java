@@ -96,7 +96,6 @@ public class Test {
         accountManager.addAccount(entityAccount);
         System.out.println(accountManager.size());*/
     }
-    //todo где тесты для 2 и 3???
     public static void lab4tests(){
     }
 }
