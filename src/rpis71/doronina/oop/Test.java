@@ -28,8 +28,7 @@ public class Test {
         for (int i = 0; i < secondTarrif.size(); i++){
             System.out.println(i+1 + "ая услуга: " + secondTarrif.getService(i).getName() + " цена: " + secondTarrif.getService(i).getCost());
         }
-
-
+//
         System.out.println("\nДобавление услуги по индексу");
         secondTarrif.addService(2,service4);
         System.out.println("Количество услуг: " + secondTarrif.size());
