@@ -5,15 +5,17 @@ public class Service {
     private int cost;
     private static final String DEFAULT_NAME = "интернет 100мб\\сек";
     private static final int DEFAULT_COST = 300;
-    private final ServiceTypes type = ServiceTypes.INTERNET;
+    private  ServiceTypes type;
+    private static final ServiceTypes DEFAULT_TYPE = ServiceTypes.INTERNET;
 
     public Service(){
-        this(DEFAULT_NAME, DEFAULT_COST);
+        this(DEFAULT_NAME, DEFAULT_COST, DEFAULT_TYPE);
     }
 
-    public Service(String name, int cost){
+    public Service(String name, int cost, ServiceTypes type){
         this.name = name;
         this.cost = cost;
+        this.type = type;
     }
 
     public String getName() {
